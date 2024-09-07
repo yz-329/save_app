@@ -8,10 +8,6 @@ export default function HomeLayout() {
       {
         headerShown: false,
         headerStyle: {backgroundColor: '#f4511e',},
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
       }
     }>
       <Stack.Screen name="index" />

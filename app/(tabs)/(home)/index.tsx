@@ -1,7 +1,6 @@
 import { Text, View, SafeAreaView, StyleSheet, Pressable, Modal, TouchableOpacity} from "react-native";
 import { useState } from "react";
 
-
 //vector icon
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons'
@@ -63,16 +62,16 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: 'white',
     borderRadius: 20,
-    fontFamily: "Nerko One Regular",
   },
 
   modalText: {
     textAlign: 'center',
+    fontFamily: 'Montserrat Regular',
   },
 
   text: {
     fontSize: 36,
-    fontFamily: "NerkoOneRegular",
+    fontFamily: 'Montserrat Regular',
   },
 
   button: {
