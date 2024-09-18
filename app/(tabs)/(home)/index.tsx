@@ -4,45 +4,92 @@ import { useState } from "react";
 //vector icon
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons'
+import { faCircleInfo, faPiggyBank } from "@fortawesome/free-solid-svg-icons";
 
-
-export default function Home() {
-  const [saveModalVisible, setSaveModalVisible] = useState(false);
+const InfoButton = () => {
+  const [ModalVisible, setModalVisible] = useState(false)
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.text}>Saving today?</Text>
-    
+    <View>
       <Modal
-        transparent={true}
-        animationType="fade"
-        visible={saveModalVisible}
-        onRequestClose={() => setSaveModalVisible(!saveModalVisible)}>
-          
-          <TouchableOpacity
-            style={styles.backdrop}
-            activeOpacity={1}
-            // onPressOut={() => setSaveModalVisible(!saveModalVisible)}
-          >
-            <View style={styles.modalView}>
-              <Pressable
-                onPress={()=>setSaveModalVisible(!saveModalVisible)}>
-                <FontAwesomeIcon icon={faCircleXmark} color="grey" size={25}/>
-              </Pressable>
-              <Text style={styles.modalText}>This is a centered modal!</Text>
-            </View>
-          </TouchableOpacity>
+      transparent={true}
+      animationType="fade"
+      visible={ModalVisible}
+      onRequestClose={() => setModalVisible(!ModalVisible)}>
       </Modal>
-      
-      <Pressable
-        style={styles.button}
-        onPress={()=>setSaveModalVisible(true)}>
-        <Text>Save</Text>
+
+      <Pressable onPress={() => setModalVisible(!ModalVisible)}>
+        <FontAwesomeIcon icon={faCircleInfo} color="black" size={20}/>
       </Pressable>
 
+    </View>
+  );
+};
+
+const PiggyBank = () => {
+  return (
+    <View>
+      <Pressable>
+        <FontAwesomeIcon icon={faPiggyBank} color="black" size={250} />
+      </Pressable>
+
+      <Text>$928.00</Text>
+    </View>
+  );
+};
+
+// square-poll-horizontal
+
+
+// export default function Home() {
+//   const [saveModalVisible, setSaveModalVisible] = useState(false);
+
+//   return (
+//     <SafeAreaView style={styles.container}>
+//       <Text style={styles.text}>Saving today?</Text>
+    
+//       <Modal
+//         transparent={true}
+//         animationType="fade"
+//         visible={saveModalVisible}
+//         onRequestClose={() => setSaveModalVisible(!saveModalVisible)}>
+          
+//           <TouchableOpacity
+//             style={styles.backdrop}
+//             activeOpacity={1}
+//             // onPressOut={() => setSaveModalVisible(!saveModalVisible)}
+//           >
+//             <View style={styles.modalView}>
+//               <Pressable
+//                 onPress={()=>setSaveModalVisible(!saveModalVisible)}>
+//                 <FontAwesomeIcon icon={faCircleXmark} color="grey" size={25}/>
+//               </Pressable>
+//               <Text style={styles.modalText}>This is a centered modal!</Text>
+//             </View>
+//           </TouchableOpacity>
+//       </Modal>
+      
+//       <View style={styles.buttonView}>
+//         <Pressable
+//           style={styles.button}
+//           onPress={()=>setSaveModalVisible(true)}>
+//           <Text>Save</Text>
+//         </Pressable>
+//       </View>
+
+//     </SafeAreaView>
+//   );
+// }
+
+const SavePage = () => {
+  return (
+    <SafeAreaView>
+      <InfoButton />
+      <PiggyBank />
     </SafeAreaView>
   );
-}
+};
+
 
 const styles = StyleSheet.create({
   container: {
@@ -64,14 +111,19 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
 
+  text: {
+    fontSize: 36,
+    fontFamily: 'Montserrat Regular',
+  },
+
   modalText: {
     textAlign: 'center',
     fontFamily: 'Montserrat Regular',
   },
 
-  text: {
-    fontSize: 36,
-    fontFamily: 'Montserrat Regular',
+  buttonView: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   button: {
@@ -85,3 +137,5 @@ const styles = StyleSheet.create({
 
 
 })
+
+export default SavePage;
