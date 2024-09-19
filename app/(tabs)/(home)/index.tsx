@@ -12,14 +12,14 @@ const InfoButton = () => {
   return (
     <View>
       <Modal
-      transparent={true}
-      animationType="fade"
-      visible={ModalVisible}
-      onRequestClose={() => setModalVisible(!ModalVisible)}>
+        transparent={false}
+        animationType="fade"
+        visible={false} //change to ModalVisible for full implementation
+        onRequestClose={() => setModalVisible(!ModalVisible)}>
       </Modal>
 
       <Pressable onPress={() => setModalVisible(!ModalVisible)}>
-        <FontAwesomeIcon icon={faCircleInfo} color="black" size={20}/>
+        <FontAwesomeIcon icon={faCircleInfo} color="#BBD0FF" size={20}/>
       </Pressable>
 
     </View>
@@ -29,63 +29,39 @@ const InfoButton = () => {
 const PiggyBank = () => {
   return (
     <View>
-      <Pressable>
-        <FontAwesomeIcon icon={faPiggyBank} color="black" size={250} />
+      <Pressable style={styles.piggy}>
+        <FontAwesomeIcon icon={faPiggyBank} color="#3562C7" size={250} />
       </Pressable>
 
-      <Text>$928.00</Text>
+      <View style={styles.savingText}>
+        {/* <Text style={{
+          fontFamily: 'Montserrat Bold',
+          fontSize: 20,
+          color: '#3562C7',
+          }}>
+          Saved:
+        </Text> */}
+
+        <Text style={{
+          fontFamily: 'Montserrat Bold',
+          fontSize: 20,
+          color: '#3562C7',
+          }}>
+          $ 928.00
+        </Text>
+      </View>
     </View>
   );
 };
 
-// square-poll-horizontal
-
-
-// export default function Home() {
-//   const [saveModalVisible, setSaveModalVisible] = useState(false);
-
-//   return (
-//     <SafeAreaView style={styles.container}>
-//       <Text style={styles.text}>Saving today?</Text>
-    
-//       <Modal
-//         transparent={true}
-//         animationType="fade"
-//         visible={saveModalVisible}
-//         onRequestClose={() => setSaveModalVisible(!saveModalVisible)}>
-          
-//           <TouchableOpacity
-//             style={styles.backdrop}
-//             activeOpacity={1}
-//             // onPressOut={() => setSaveModalVisible(!saveModalVisible)}
-//           >
-//             <View style={styles.modalView}>
-//               <Pressable
-//                 onPress={()=>setSaveModalVisible(!saveModalVisible)}>
-//                 <FontAwesomeIcon icon={faCircleXmark} color="grey" size={25}/>
-//               </Pressable>
-//               <Text style={styles.modalText}>This is a centered modal!</Text>
-//             </View>
-//           </TouchableOpacity>
-//       </Modal>
-      
-//       <View style={styles.buttonView}>
-//         <Pressable
-//           style={styles.button}
-//           onPress={()=>setSaveModalVisible(true)}>
-//           <Text>Save</Text>
-//         </Pressable>
-//       </View>
-
-//     </SafeAreaView>
-//   );
-// }
 
 const SavePage = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <InfoButton />
-      <PiggyBank />
+      <View style={styles.piggyContainer}>
+        <PiggyBank />
+      </View>
     </SafeAreaView>
   );
 };
@@ -94,7 +70,33 @@ const SavePage = () => {
 const styles = StyleSheet.create({
   container: {
     margin: 30,
+    marginTop: 50,
   },
+
+  piggyContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
+    top: '40%',
+  },
+
+  piggy: {
+    position: 'relative',
+    transform: [{ translateX: -10 }, { translateY: 0 }],
+  },
+
+  savingText: {
+    marginTop: 15,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+
+
+
+
+
 
   backdrop: {
     flex: 1,
@@ -139,3 +141,48 @@ const styles = StyleSheet.create({
 })
 
 export default SavePage;
+
+
+
+// square-poll-horizontal
+
+
+// export default function Home() {
+//   const [saveModalVisible, setSaveModalVisible] = useState(false);
+
+//   return (
+//     <SafeAreaView style={styles.container}>
+//       <Text style={styles.text}>Saving today?</Text>
+    
+//       <Modal
+//         transparent={true}
+//         animationType="fade"
+//         visible={saveModalVisible}
+//         onRequestClose={() => setSaveModalVisible(!saveModalVisible)}>
+          
+//           <TouchableOpacity
+//             style={styles.backdrop}
+//             activeOpacity={1}
+//             // onPressOut={() => setSaveModalVisible(!saveModalVisible)}
+//           >
+//             <View style={styles.modalView}>
+//               <Pressable
+//                 onPress={()=>setSaveModalVisible(!saveModalVisible)}>
+//                 <FontAwesomeIcon icon={faCircleXmark} color="grey" size={25}/>
+//               </Pressable>
+//               <Text style={styles.modalText}>This is a centered modal!</Text>
+//             </View>
+//           </TouchableOpacity>
+//       </Modal>
+      
+//       <View style={styles.buttonView}>
+//         <Pressable
+//           style={styles.button}
+//           onPress={()=>setSaveModalVisible(true)}>
+//           <Text>Save</Text>
+//         </Pressable>
+//       </View>
+
+//     </SafeAreaView>
+//   );
+// }

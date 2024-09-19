@@ -1,5 +1,4 @@
 import { Stack, useNavigation } from "expo-router";
-import { useEffect } from "react";
 
 export default function HomeLayout() {
 

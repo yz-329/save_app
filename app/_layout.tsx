@@ -1,11 +1,11 @@
-import { Stack, useNavigation } from "expo-router";
+import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
 
 export default function RootLayout() {
     const [fontsLoaded] = useFonts({
-        'Nerko One Regular': require('../assets/fonts/Nerko One Regular.ttf'),
         'Montserrat Regular': require('../assets/fonts/Montserrat Regular.ttf'),
-
+        'Montserrat Black': require('../assets/fonts/Montserrat Black.ttf'),
+        'Montserrat Bold': require('../assets/fonts/Montserrat Bold.ttf'),
       });
 
     return (
